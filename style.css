@@ -1,0 +1,227 @@
+/* Reset some default margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3EFF3; /*#2E1A2E - dark muted plumb;  #F6F3F6 - light muted plumb*/
+    position: relative;
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2); /* black overlay at 20% opacity */
+    z-index: -1; /* ensures it stays behind content */
+}
+
+
+/* Navigation */
+.nav {
+    background-color: #0F020F; /* very dark black with purple undertone */
+    padding: 20px;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    color: #F3EFEA; /* Parchment for readability */
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #5B065B; /* Deep Purple accent */
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('hero.png'); /* change to your file name */
+    background-size: cover;   /* makes image fill hero section */
+    background-position: center; /* centers the important part of image */
+    background-repeat: no-repeat;
+    position:relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+    min-height: 55vh; /* already set for hero size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white; /* ensures text is visible on hero image */
+    /* existing properties stay the same */
+    justify-content: flex-start; /* move content to top */
+    padding-top: 40px;           /* controls vertical position */
+
+    /* NEW: Burgundy lift shadow */
+    box-shadow:
+        0 25px 50px rgba(125, 0, 31, 0.22),
+        0 10px 20px rgba(0,0,0,0.08);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;       /* slightly below hero section */
+    left: 5%;            /* leave small margins */
+    width: 90%;
+    height: 40px;        /* controls vertical shadow size */
+    background: radial-gradient(
+        ellipse at center,
+        rgba(60, 0, 20, 0.45), /* very dark burgundy center */
+        rgba(60, 0, 20, 0)     /* fades to transparent edges */
+    );
+    filter: blur(15px);   /* softens shadow */
+    z-index: -1;          /* behind content */
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    color: #F3EFF3; /* very light muted plum */
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+}
+
+.hero button {
+    font-family: 'Inter', sans-serif;
+    padding: 12px 28px;
+    background-color: rgba(125, 0, 31, 0.80); /* Burgundy at 80% */
+    color: #F3EFEA;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow:
+        0 12px 22px rgba(91, 6, 91, 0.45),   /* Deep Purple lift shadow */
+        0 4px 10px rgba(0,0,0,0.25),         /* neutral grounding shadow */
+        inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+.hero button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 16px 30px rgba(91, 6, 91, 0.55),
+        0 6px 14px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.22);
+}
+
+.hero-cta {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.hero-bottom-text {
+    font-family: 'Playfair Display', serif; /* matches hero heading */
+    font-weight: 400;
+    color: #F3EFF3; /* very light muted plum */
+    font-size: 1.2rem;
+    margin-top: auto;          /* pushes it to the bottom of hero section */
+    padding-bottom: 20px;      /* spacing from bottom edge */
+    text-align: center;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35); /* subtle shadow for readability */
+}
+
+/* About Me Cards */
+.about-me {
+    display: flex;
+    gap: 1px;
+    margin: 40px 20px;
+}
+
+.card {
+    background: radial-gradient(circle at center, rgba(87,115,76,0.75) 60%, rgba(87,115,76,0.65) 100%);
+    border: 1px solid rgba(76,46,76,0.1); /* Muted Plum at 10% opacity */
+    font-family: 'Source Serif 4', serif;
+    flex: 1;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+
+    /* Strong downward lift shadow */
+    box-shadow:
+        0 12px 20px rgba(91,6,91,0.35),   /* strong downward shadow (deep purple) */
+        0 4px 10px rgba(0,0,0,0.10),      /* soft ambient shadow */
+        0 -2px 6px rgba(0,0,0,0.05),
+        2px 0 6px rgba(0,0,0,0.05),
+        -2px 0 6px rgba(0,0,0,0.05);
+
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover {
+    /* Slightly darker card */
+    background: radial-gradient(circle at center, rgba(87,115,76,0.85) 60%, rgba(87,115,76,0.75) 100%);
+
+    /* Lift effect */
+    transform: translateY(-6px); /* moves the card slightly up */
+
+    /* Stronger shadow to match lift */
+    box-shadow:
+        0 16px 24px rgba(91,6,91,0.35),   /* deep purple downward shadow */
+        0 8px 20px rgba(0,0,0,0.15),      /* ambient soft shadow */
+        0 -2px 6px rgba(0,0,0,0.05),
+        2px 0 6px rgba(0,0,0,0.05),
+        -2px 0 6px rgba(0,0,0,0.05);
+
+    cursor: pointer;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1px;  /* extends shadow into gap */
+    right: -1px;
+    border-radius: 12px;
+    box-shadow: inset -1px 0 4px rgba(87,115,76,0.5),  /* left edge - dark fern green */
+                inset 1px 0 4px rgba(87,115,76,0.5);   /* right edge - dark fern green */
+    pointer-events: none;
+}
+
+/* Portfolio Panels */
+.portfolio {
+    display: flex;
+    gap: 10px; /* small space between panels for readability */
+    margin: 40px 20px;
+    overflow-x: auto; /* allow horizontal scroll if screen is too small */
+}
+
+.panel {
+    background-color: rgba(87, 115, 76, 0.6); /* Fern Green at 60% opacity */
+    font-family: 'Source Serif 4', serif;
+    flex: 0 0 20%; /* 5 panels visible per screen (100% / 5) */
+    min-height: 300px; /* enough space for future content */
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px; /* adjust px value for more or less rounding */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* subtle 3D effect */
+}
+
+/* Footer */
+.footer {
+    background-color: #4C2E4C;
+    text-align: center;
+    color: #F3EFEA; /* neutral text */
+    padding: 40px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
