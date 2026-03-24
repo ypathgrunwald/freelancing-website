@@ -27,8 +27,16 @@ body::before {
 
 /* Navigation */
 .nav {
-    background-color: #0F020F; /* very dark black with purple undertone */
-    padding: 20px;
+    background-color: #4A2B4A;  /* darker muted plumb */
+    padding: 12px 20px;
+    position: relative;
+    z-index: 100;
+    border-bottom: none;
+        background-image: linear-gradient(
+            to bottom,
+            #4A2B4A 70%,
+            #3D2A3A 100%
+    );*/
 }
 
 .nav ul {
@@ -40,12 +48,12 @@ body::before {
 .nav a {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    color: #F3EFEA; /* Parchment for readability */
+    color: #F3EFF3;
 }
 
 .nav a:hover,
 .nav a.active {
-    color: #5B065B; /* Deep Purple accent */
+    color: #8AAF7E;
 }
 
 /* Hero Section */
@@ -147,23 +155,46 @@ body::before {
 
 .card {
     background: radial-gradient(circle at center, rgba(87,115,76,0.75) 60%, rgba(87,115,76,0.65) 100%);
-    border: 1px solid rgba(76,46,76,0.1); /* Muted Plum at 10% opacity */
+    border: 1px solid rgba(76,46,76,0.1);
     font-family: 'Source Serif 4', serif;
     flex: 1;
-    padding: 60px 20px;
+    padding: 20px;
     text-align: center;
     border-radius: 12px;
-
-    /* Strong downward lift shadow */
     box-shadow:
-        0 12px 20px rgba(91,6,91,0.35),   /* strong downward shadow (deep purple) */
-        0 4px 10px rgba(0,0,0,0.10),      /* soft ambient shadow */
+        0 12px 20px rgba(91,6,91,0.35),
+        0 4px 10px rgba(0,0,0,0.10),
         0 -2px 6px rgba(0,0,0,0.05),
         2px 0 6px rgba(0,0,0,0.05),
         -2px 0 6px rgba(0,0,0,0.05);
-
     position: relative;
     z-index: 1;
+    display: flex;          /* NEW */
+    align-items: flex-start; /* NEW */
+}
+
+.card-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+    padding: 10px;
+}
+
+.card-icon-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(122, 90, 122, 0.85); /*#7A5A7A wit opacity*/
+    border-radius: 8px;
+}
+
+.card-title {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    color: #1A0F1A;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .card:hover {
